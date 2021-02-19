@@ -8,7 +8,7 @@ class radioTest {
 
     @Test
     public void validateChangeVolumeOverMax(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentVolume());
         radio.setMaxVolume(10);
         radio.setCurrentVolume(11);
@@ -17,7 +17,7 @@ class radioTest {
 
     @Test
     public void validateChangeVolumeUnderMin(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentVolume());
         radio.setCurrentVolume(-1);
         assertEquals(0,radio.getCurrentVolume());
@@ -25,7 +25,7 @@ class radioTest {
 
     @Test
     public void validateChangeVolume(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentVolume());
         radio.setMaxVolume(10);
         radio.setCurrentVolume(5);
@@ -34,28 +34,26 @@ class radioTest {
 
     @Test
     public void validateChangeStationOverMax(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentStation());
         radio.setMaxStation(9);
         radio.setCurrentStation(9);
-        radio.setNext(true);
-        assertTrue(radio.isNext());
+        radio.nextStation();
         assertEquals(0,radio.getCurrentStation());
     }
 
     @Test
     public void validateChangeStationUnderMin(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentStation());
         radio.setMaxStation(9);
-        radio.setPrev(true);
-        assertTrue(radio.isPrev());
+        radio.prevStation();
         assertEquals(9,radio.getCurrentStation());
     }
 
     @Test
     public void validateChangeStation(){
-        radio radio = new radio();
+        Radio radio = new Radio();
         assertEquals(0,radio.getCurrentStation());
         radio.setMaxStation(9);
         radio.setCurrentStation(5);
