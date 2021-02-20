@@ -22,12 +22,6 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if(currentStation > maxStation){
-            currentStation = minStation;
-        }
-        if(currentStation < minStation){
-            currentStation = maxStation;
-        }
         this.currentStation = currentStation;
     }
 
@@ -68,12 +62,6 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if(currentVolume > maxVolume) {
-            currentVolume = maxVolume;
-        }
-        if(currentVolume < minVolume) {
-            currentVolume = minVolume;
-        }
         this.currentVolume = currentVolume;
     }
 
@@ -98,6 +86,22 @@ public class Radio {
             currentStation = minStation;
         } else {
             currentStation++;
+        }
+    }
+
+    public void lowVolume() {
+        if (currentVolume <= minVolume) {
+            currentVolume = minVolume;
+        } else {
+            currentVolume--;
+        }
+    }
+
+    public void highVolume() {
+        if (currentVolume >= maxVolume) {
+            currentVolume = maxVolume;
+        } else {
+            currentVolume++;
         }
     }
 }
